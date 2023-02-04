@@ -2,8 +2,9 @@
 game.players["kreepozi"].Character.Humanoid.DisplayName = "[👑]67kreepoz"
 game.players["vepiuu"].Character.Humanoid.DisplayName = "[👑]codive"
 
-local moder = {
-    admin = "vepiuu, KreepOZi",
+local settings = {
+    admin = "vepiuu",
+    admin = "KreepOZi",
     prefix = "!",
 }
 
