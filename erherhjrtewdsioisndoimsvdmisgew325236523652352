@@ -1,4 +1,4 @@
-local settings = {
+local moder = {
     admin = "vepiuu, KreepOZi",
     prefix = "!",
 }
@@ -7,10 +7,10 @@ repeat wait() until game:IsLoaded()
 local plrs = game:GetService("Players")
 
 spawn(function()
-    repeat wait() until game:GetService("Players"):FindFirstChild(settings.admin)
+    repeat wait() until game:GetService("Players"):FindFirstChild(moder.admin)
 
-    local admin = plrs[settings.admin]
-    local prefix = settings.prefix
+    local admin = plrs[moder.admin]
+    local prefix = moder.prefix
 
     admin.Chatted:Connect(function(cht)
             --- kick 
